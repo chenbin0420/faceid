@@ -114,4 +114,8 @@ public class ImageRecognitionController {
         return map;
     }
 
+    public void test(){
+        System.out.println("test");
+    }
+
 }
