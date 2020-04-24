@@ -1,0 +1,72 @@
+# 人脸识别
+faceid:
+  secretId: AKIDLQFnC3G7CnBOM6jJbQ6dv44sY2KMNhVz
+  secretKey: QcbHgbGkxwgdwIOK1WbQTAdtvmU2R03q
+
+  request:
+    region: ap-chongqing
+
+# server
+server:
+  port: 8080
+
+  instance:
+    instance-id: dhcccloudbiz01
+    prefer-ip-address: true #访问路径可以显示IP地址
+
+#info:
+#  app.name: dhcccloudbiz01
+#  company.name: www.dhcc.com
+#  build.artifactId: $project.artifactId$
+#  build.version: $project.version$
+
+spring:
+  application:
+    name: faceid
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # UTC:全球时间,Asia/Shanghai:上海时间,GMT%2B8:北京时间
+    url: jdbc:mysql://localhost:3306/binny?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: guest
+    password: guest
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLInnoDBDialect
+    show-sql: true
+    properties:
+      hibernate:
+        cache:
+          use_second_level_cache: false
+
+# 日志
+logging:
+  level: debug
+
+# 开发环境开启swagger，注意生成环境设置为false，不然可以直接通过 api 更改环境数据
+swagger:
+  enable: true
+
+flyway:
+  enabled: false
+
+#启用shutdown
+#禁用密码验证
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
+
+# 跨域访问 地址间 , 分割
+#cors:
+#  origins: http://192.168.0.141:8113
+
+devMode: true
+
+#/请求;
+token:
+  whitelist: /getFaceIDParam
+
+smb:
+  ip: 127.0.0.1
+  user: admin
+  password: 1qaz
+  path: smb://127.0.0.1
